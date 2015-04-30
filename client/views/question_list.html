@@ -1,0 +1,17 @@
+<template name="question_list">
+<h1>Title{{title}}</h1>
+{{#if questions}}
+
+    {{#each questions}}
+    <div class="list-group">
+      <a href="#" class="list-group-item">
+          <h4 class="list-group-item-heading">{{subject}}</h4>
+          <p class="list-group-item-text">{{question}}</p>
+      </a>
+    </div>
+    {{/each}}
+
+{{else}}
+    <div class="alert alert-warning" role="alert">No Question yet, Be the first to ask question? </div>
+{{/if}}
+</template>
