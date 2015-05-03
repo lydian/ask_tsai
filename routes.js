@@ -60,17 +60,18 @@ Router.route('question_show', {
     template: 'question_show',
     data: function(){
         var question = Questions.findOne({_id: this.params._id});
-        question.user = Meteor.users.findOne({_id: question.user_id});
-        question.category = Categories.findOne({_id: new Mongo.ObjectID(question.category_id)});
-        question.votes = Votes.find({question_id: this.params._id}).map(function(vote){
-            vote.user = Meteor.users.findOne({_id: vote.user_id});
-            return vote;
-        });
-        question.meAsked = question.user_id === Meteor.userId();
-        question.voted = _.contains(_.map(question.votes, function(vote){
-            return vote.user_id;
-        }), Meteor.userId());
-        return question;
+        if(question){
+            question.user = Meteor.users.findOne({_id: question.user_id});
+            question.category = Categories.findOne({_id: new Mongo.ObjectID(question.category_id)});
+            question.votes = Votes.find({question_id: this.params._id}).map(function(vote){
+                vote.user = Meteor.users.findOne({_id: vote.user_id});
+                return vote;
+            });
+            question.meAsked = question.user_id === Meteor.userId();
+            question.voted = _.contains(_.map(question.votes, function(vote){
+                return vote.user_id;
+            }), Meteor.userId());
+            return question;
+        }
     }
 });
-

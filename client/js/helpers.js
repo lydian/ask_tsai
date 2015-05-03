@@ -4,6 +4,7 @@ Meteor.subscribe('CategoryOfQuestion');
 Meteor.subscribe('VotesOnQuestion');
 Meteor.subscribe('userPublic');
 Meteor.subscribe('categories');
+Meteor.subscribe('Question');
 
 Template.registerHelper('userLink', function(user){
    return $("<a></a>")

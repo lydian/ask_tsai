@@ -1,4 +1,3 @@
-
 Template.question_ask.helpers({
     categories: function(){
         return Categories.find({}).fetch();
@@ -36,15 +35,6 @@ Template.question_list.events({
     'click .card': function(event) {
         Router.go("question_show", {_id: this._id});
     }
-});
-
-Template.question_show.helpers({
-    question: function(){
-       var key = 'question';
-       var obj = Session.get(key);
-       delete Session.keys[key]
-       return obj;
-    },
 });
 
 Template.question_show.events({

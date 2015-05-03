@@ -21,3 +21,6 @@ Meteor.publish("AllQuestions", function(){
 Meteor.publish("CategoryQuestions", function(category_id){
     return Questions.find({category_id: category_id});
 });
+Meteor.publish("Question", function(question_id){
+    return Questions.find({_id: question_id}, {limit: 1});
+})
