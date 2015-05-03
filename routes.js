@@ -54,5 +54,20 @@ Router.route('question_show', {
 Router.route("myDashBoard", {
     path: 'my',
     template: 'myDashBoard',
-    data: function(){}
+    data: function(){
+        var myQuestions = Questions.find({
+            user_id: Meteor.userId()
+        }).map(AskTsai.getQuestion);
+
+        var myVotes = Votes.find({
+            user_id: Meteor.userId()
+        }).map(function(vote){
+            vote.question = AskTsai.getQuestion(
+                Questions.findOne(vote.question_id)
+            );
+            return vote;
+        });
+        console.log(myVotes);
+        return {questions: myQuestions, votes: myVotes};
+    }
 });

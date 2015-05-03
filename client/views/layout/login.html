@@ -2,9 +2,10 @@
 {{#if currentUser}}
     <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{currentUser.services.facebook.name}}<span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">{{currentUser.services.facebook.name}}<span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-                <li><button id="logout" type="button" class="btn btn-link">Log Out</button></li>
+                <li><a class='menu-item' href="{{pathFor 'myDashBoard'}}">我的紀錄</a></li>
+                <li><a href='#' id="logout" class='menu-item' role='button'>Log Out</a></li>
             </ul>
         </li>
     </ul>

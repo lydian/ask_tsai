@@ -1,0 +1,33 @@
+<template name='myDashBoard'>
+<div>
+    <h2>我的發問</h2>
+    {{#each questions}}
+    <div class='card row-fluid'>
+        <div class='span9'>
+            <span class='badge'> {{votes.length}} </span>
+            <span class='label label-success'>{{category.name}}</span>
+            <strong>{{subject}}</strong>
+            <span class='pull-right'>
+                by {{{userLink user}}}
+                <i> ({{formatDate createdAt}})</i>
+            </span>
+        </div>
+    </div>
+    {{/each}}
+
+    <h2>我的連署</h2>
+    {{#each votes}}
+    <div class='card row-fluid'>
+        <div class='span9'>
+            <span class='badge'> {{question.votes.length}} </span>
+            <span class='label label-success'>{{question.category.name}}</span>
+            <strong>{{question.subject}}</strong>
+            <span class='pull-right'>
+                by {{{userLink question.user}}}
+                <i> ({{formatDate question.createdAt}})</i>
+            </span>
+        </div>
+    </div>
+    {{/each}}
+</div>
+</template>
