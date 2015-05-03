@@ -22,11 +22,10 @@ You can get the app_id and secret from [facebook developers](https://developers.
 * Add Question
 * List Questions (All/by Category)
 * Add Vote 
-
+* My Dashboard
 
 ## Todo
-* Self Dashboard
-* Send email if subscribed questions is answered or achieve vote goal
+* Send email if subscribed questions are answered or achieve vote goal
 * Share question on Facebook  
 
 
