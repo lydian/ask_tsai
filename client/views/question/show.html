@@ -1,0 +1,29 @@
+<template name='question_show'>
+<div class='page-header'>
+    <h1>
+        <span class="label label-default">{{category.name}}</span>
+        {{subject}}
+    </h1>
+</div>
+<h2>
+    目前連署人數：<span id='vote' class='label label-info'>{{votes.length}}</span>
+    <small>(最近投票時間: {{formatDate updated_on}})</small>
+</h2>
+<div class='text-right'>
+    <em><small>Asked by {{{userLink user}}} on {{formatDate createdAt}}</small></em>
+</div>
+<div class='panel panel-default'>
+    <div class='panel-body'>{{{formatContent content}}}</div>
+</div>
+{{#if currentUser}}
+    {{#if voted}}
+        <div>您已經投過囉</div>
+    {{else}}
+        {{#if meAsked}}
+            <div>自已不能投唷</div>
+        {{else}}
+            <button class='vote btn btn-success'>我也要連署</button>
+        {{/if}}
+    {{/if}}
+{{/if}}
+</template>

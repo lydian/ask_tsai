@@ -1,6 +1,5 @@
 <template name="login">
 {{#if currentUser}}
-<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{currentUser.services.facebook.name}}<span class="caret"></span></a>
@@ -9,10 +8,7 @@
             </ul>
         </li>
     </ul>
-</div>
 {{else}}
-    <div class="navbar-right">
-        <p class="navbar-text"><a id='facebook-login' href="#" class="navbar-link">Login with Facebook</a></p>
-    </div>
+        <p class="navbar-right navbar-text"><a id='facebook-login' href="#" class="navbar-link">Login with Facebook</a></p>
 {{/if}}
 </template>

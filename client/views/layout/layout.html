@@ -1,0 +1,17 @@
+<template name="layout">
+<body>
+        {{> navbar}}
+   <hr>
+    <div class="container">
+        {{> warning}}
+        {{> yield}}
+        <footer>
+            <div class="footer">
+                <div class="container">
+                    <p class='text-right'>&copy; 北加小英後援會</p>
+                </div>
+            </div>
+      </footer>
+    </div> <!-- /container -->
+</body>
+</template>
