@@ -1,4 +1,4 @@
-Meteor.publish("userPublic", function(){
+Meteor.publish("UserPublic", function(){
     return Meteor.users.find({}, {
         fields: {
             'services.facebook.name': 1,
@@ -6,7 +6,7 @@ Meteor.publish("userPublic", function(){
         }
     });
 });
-Meteor.publish("categories", function(){
+Meteor.publish("Categories", function(){
     return Categories.find({});
 });
 Meteor.publish("VotesOnQuestion", function(question_id){
@@ -23,4 +23,10 @@ Meteor.publish("CategoryQuestions", function(category_id){
 });
 Meteor.publish("Question", function(question_id){
     return Questions.find({_id: question_id}, {limit: 1});
+})
+Meteor.publish("MyQuestions", function(){
+    return Questions.find({user_id: this.userId});
+})
+Meteor.publish("MyVotes", function(){
+    return Votes.find({user_id: this.userId});
 })
