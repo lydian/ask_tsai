@@ -10,5 +10,3 @@ Meteor.subscribe('VotesOnQuestion');
 Meteor.subscribe("MyVotes")
 
 Meteor.subscribe('UserPublic');
-
-

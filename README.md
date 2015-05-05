@@ -1,9 +1,9 @@
 # Ask Tsai (小英給問嗎？北美版)
 
 ## INSTALL
-### Setup Facebook: 
+### Setup Facebook:
 
-create a file: `settings.json`
+copy and edit `config/settings.json.example` to `config/settings.json`
 
 ```
 {
@@ -14,19 +14,19 @@ create a file: `settings.json`
 You can get the app_id and secret from [facebook developers](https://developers.facebook.com/)
 
 ### Run
-`meteor --settings settings.json`
+`meteor --settings config/settings.json`
 
 
 ## Features
 * Login with Facebook (You have to login to vote/ask question)
 * Add Question
 * List Questions (All/by Category)
-* Add Vote 
+* Add Vote
 * My Dashboard
 
 ## Todo
 * Send email if subscribed questions are answered or achieve vote goal
-* Share question on Facebook  
+* Share question on Facebook
 
 
 ## Demo
