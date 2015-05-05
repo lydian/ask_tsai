@@ -31,8 +31,10 @@
     min-height: 600px;
 }
 
-body{
-    background-image: url('/tsai.png');
-    background-repeat: no-repeat;
-    background-position: right 0 bottom 0;
+@media(min-width: 1000px) {
+    body{
+        background-image: url('/tsai.png');
+        background-repeat: no-repeat;
+        background-position: right 0 bottom 0;
+    }
 }
