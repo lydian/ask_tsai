@@ -11,12 +11,19 @@ Template.question_ask.events({
             Session.set("error", "要先登入才能發問唷");
         }
         else{
-            var question_id = Questions.insert({
+            Questions.insert({
                 category_id: event.target.category_id.value,
                 subject: event.target.subject.value,
                 content: event.target.content.value
+            }, function(err, question_id){
+                if(err){
+                    console.log(err.message);
+                    Session.set('error', err.message);
+                }
+                else{
+                    Router.go('question_show', {_id: question_id});
+                }
             });
-            Router.go('question_show', {_id: question_id});
         }
     }
 });

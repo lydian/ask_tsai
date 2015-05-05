@@ -4,6 +4,12 @@ Categories = new Mongo.Collection("categories");
 
 Questions.allow({
     insert: function(userId, doc){
+        try{
+            check(doc, Questions.simpleSchema());
+        }
+        catch(err){
+            throw new Meteor.Error(err.error, err.reason);
+        }
         return (userId && doc.user_id === userId);
     },
 });
@@ -11,7 +17,6 @@ Questions.allow({
 Questions.before.insert(function(userId, doc){
     doc.user_id = userId;
     doc.createdAt = new Date();
-    doc.updatedAt = new Date();
 });
 
 Votes.before.insert(function(userId, doc){
@@ -26,8 +31,10 @@ Votes.allow({
             question_id: doc.question_id,
             user_id: userId
         }).count() > 0;
-        if(voted) throw new Meteor.Error(404, "你投過啦!");
+        if(question.user_id == this.userId) throw new Meteor.Error(
+            '400', 'You cannot vote your own question.');
+        if(voted) throw new Meteor.Error(
+            '400', "You already vote on this question");
         return true;
     },
 });
-
