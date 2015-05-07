@@ -17,6 +17,15 @@ You can get the app_id and secret from [facebook developers](https://developers.
 `meteor --settings config/settings.json`
 
 
+### Deploy to Heroku
+
+Follow direction in [heroku-buildpack-meteor](https://github.com/jordansissel/heroku-buildpack-meteor)
+
+- mongolab: `heroku config | grep MONGOLAB_URI`
+- facebook login: 
+```heroku config:set FACEBOOK_APP_ID=<FACEBOOK_APP_ID FACEBOOK_SECRET=<FACEBOOK_SECRET>```
+
+
 ## Features
 * Login with Facebook (You have to login to vote/ask question)
 * Add Question
